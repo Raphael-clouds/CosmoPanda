@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CosmoPanda</title>
+    <link href="src/output.css" rel="stylesheet">
+</head>
+
+<body class="dark" id="body">
+    <div class="title-container">
+        <svg class="panda-breakpoint panda">
+            <use xlink:href="src/sprite.svg#panda"></use>
+        </svg>
+        <h1 class="title title-breakpoint">
+            CosmoPanda
+        </h1>
+    </div>
+    <header>
+        <nav>
+            <div class="buttons-container buttons-container-breakpoint">
+                <!-- <div class=" flex justify-center items-center w-full px-2 z-20 static"> -->
+                <div class="p-2">
+                    <label class="switch">
+                        <input class="switch-input" type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="regions-filter">
+                    <button id="home-btn" class="home-btn button-hover">
+                        <svg class="w-10 h-10">
+                            <use xlink:href="src/sprite.svg#home"></use>
+                        </svg>
+                    </button>
+                    <select id="region-select" class="select-style animate-jelly button-style button-hover">
+                        <option class="option-style" id="select" value="select">Select a Region</option>
+                        <option class="option-style" id="all" value="all">All</option>
+                        <option class="option-style" id="africa" value="africa">Africa</option>
+                        <option class="option-style" id="america" value="Americas">Americas</option>
+                        <option class="option-style" id="asia" value="asia">Asia</option>
+                        <option class="option-style" id="europe" value="europe">Europe</option>
+                        <option class="option-style" id="oceania" value="oceania">Oceania</option>
+                        <option class="option-style" id="clear" value="clear">Clear</option>
+                    </select>
+                    <button id="search-toggle"
+                        class="animate-jelly button-style button-hover search-toggle-breakpoint search-toggle">
+                        <svg class="w-5 h-5">
+                            <use xlink:href="src/sprite.svg#search"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div id="search-div" class="invisible search-container search-container-breakpoint">
+                    <div class="search search-breakpoint">
+                        <label for="search-input" class="text-size-2 font-bold label-breakpoint">Search for a city or
+                            country</label>
+                        <input type="text" id="search-input" placeholder="Search a country..."
+                            class="search-input search-input-hover search-input-breakpoint">
+                        <button id="search-btn" type="submit"
+                            class="button-style button-hover search-btn">Search</button>
+                    </div>
+                </div>
+                <!-- </div> -->
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="data" class="data data-breakpoint">
+            <div class="country-card animate-blurred-fade-in hello-world-card hello-world-card-breakpoint"
+                id="hello-world">
+                <h1 class="text-size-4 my-1 font-bold">Hello World</h1>
+                <p class="text-size-1">Welcome to the world of countries!</p>
+                <svg>
+                    <use xlink:href="src/sprite.svg#folded-map-with-position-mark"></use>
+                </svg>
+            </div>
+        </div>
+    </main>
+    <script src="logic js/main.js"></script>
+</body>
+
+</html>

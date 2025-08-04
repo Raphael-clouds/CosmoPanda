@@ -1,0 +1,326 @@
+@import "tailwindcss";
+@import 'animate.css';
+@plugin "@midudev/tailwind-animations";
+
+@theme{
+    --color-cosmic-purple: #0F0F1A;
+    --color-cosmic-cards: #1A1A2E;
+    --color-cosmic-border: #303052;
+    --font-inter: 'Inter', sans-serif;
+    --font-Segoe: 'Segoe UI', sans-serif;
+    --color-cosmic-hover: #303060;
+    --text-size-1: 16px;
+    --text-size-2: 1.5rem;
+    --text-size-3: 2rem;
+    --text-size-4: 2.5rem;
+    --text-size-5: 2.7rem;
+    --spacing-world-card-height: 75vh;
+    --spacing-search-card-height: 75vh;
+    --spacing-country-card-height: 400px;
+    --spacing-distance-top: 20%;
+    --spacing-width-search: 95vw;
+    --shadow-search-btn: 0 0 10px rgba(0, 255, 255, 0.5);
+    --shadow-card: 0 0 10px var(--color-cosmic-border);
+    --spacing-flag-width: 140px;
+    --spacing-flag-height: 140px;
+    --spacing-flag-width-hover: 225px;
+    --spacing-flag-nepal-width: 120px;
+    --spacing-flag-nepal-width-hover: 145px;
+}
+
+/* TITULO COSMOPANDA */
+.title-container{
+    @apply flex flex-row justify-center items-center gap-0.5 mt-5
+}
+.panda{
+    @apply w-15 h-15;
+}
+.title{
+    @apply text-center text-4xl font-bold;
+}
+/* TITLE BREAKPOINT */
+.title-breakpoint{
+    @apply md:text-size-5
+}
+/* LOGO BREAKPOINT */
+.panda-breakpoint{
+    @apply md:w-20 md:h-20;
+}
+/* NAVBAR COSMOPANDA */
+
+/* inicio del toggle dark mode */
+.switch {
+    display: block;
+    --width-of-switch: 3.4em;
+    --height-of-switch: 2em;
+    /* size of sliding icon -- sun and moon */
+    --size-of-icon: 1.4em;
+    /* it is like a inline-padding of switch */
+    --slider-offset: 0.3em;
+    position: relative;
+    width: var(--width-of-switch);
+    height: var(--height-of-switch);
+}
+.switch-input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: #333; */
+    background-color: var(--color-cosmic-hover);
+    transition: .4s;
+    border-radius: 30px;
+    border: 1px solid var(--color-cosmic-border);
+    box-shadow: 0 0 5px var(--color-cosmic-border);
+}
+.slider::before{
+    position: absolute;
+    content: "";
+    height: var(--size-of-icon, 1.4em);
+    width: var(--size-of-icon, 1.4em);
+    border-radius: 20px;
+    left: var(--slider-offset,0.3em);
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
+    transition: .4s;
+}
+.switch-input:checked + .slider {
+    background: #f4f4f5;
+    border: 1px solid var(--color-cosmic-border);
+    box-shadow: 0 0 5px #000;
+}
+.switch-input:checked + .slider:before {
+    left: calc(100% - (var(--size-of-icon,1.4em) + var(--slider-offset,0.3em)));
+    background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
+    box-shadow: inset 0 0 0 0 #8983f7, inset 0 0 0 0 #a3dafb;
+}
+
+/* Dark Mode */
+.dark{
+    @apply bg-cosmic-purple text-white font-Segoe;
+    .search-btn{
+        @apply hover:scale-105 transition-transform duration-300
+    }
+}
+
+/* Light Mode */
+.light{
+    @apply bg-white text-black font-Segoe;
+    h1{
+        color: #000000;
+    }
+    .country-card{
+        @apply bg-gray-200 text-black border-solid border-gray-400;
+    }
+    .country-card p{
+        color: #333;
+    }
+    .button-style, .home-btn{
+        @apply bg-white text-black hover:bg-gray-300;
+    }
+    svg{
+        filter: invert(1);
+    }
+    .linkedin-icon{
+        @apply filter-none;
+    }
+    .capital{
+        @apply text-gray-800
+    }
+    .language{
+        @apply text-gray-800
+    }
+    .country-name{
+        @apply text-black;
+    }
+    .invalid-card{
+        @apply bg-gray-200 text-black border-solid border-gray-400;
+    }
+    .error-message{
+        @apply text-gray-800;
+    }
+    .search-container{
+        @apply bg-gray-200 border-solid border-gray-400 md:border-none md:bg-transparent ;
+    }
+    .search-input{
+        @apply border-gray-600;
+    }
+    .option-style{
+        @apply bg-gray-200 text-black hover:bg-gray-300;
+    }
+    .search-btn{
+        @apply bg-linear-to-r from-cosmic-border to-cosmic-hover text-white hover:scale-105 transition-transform duration-300;
+    }
+}
+
+/* Fin del toggle dark mode */
+
+.buttons-container{
+    @apply flex justify-center items-center w-full px-2 z-20 static mb-4;
+}
+.buttons-container-breakpoint{
+    @apply md:justify-start md:gap-2
+}
+.regions-filter{
+    @apply flex flex-row items-center gap-3
+}
+.button-hover{
+    @apply hover:bg-cosmic-hover 
+}
+.home-btn{
+    @apply animate-jelly text-white rounded-lg cursor-pointer bg-cosmic-purple;
+}
+.button-style{
+    @apply text-white p-1.5 rounded-lg cursor-pointer bg-cosmic-purple;
+}
+.option-style{
+    @apply text-white p-1.5 rounded-lg cursor-pointer bg-cosmic-purple hover:bg-cosmic-hover
+}
+/* SEARCH TOGGLE BREAKPOINT */
+.search-toggle-breakpoint{
+    @apply md:hidden;
+}
+
+
+/* Main Content */
+/* Grid DATA */
+.data{
+    @apply grid grid-cols-1 h-world-card-height px-4 gap-5;
+}
+/* Data Breakpoint */
+.data-breakpoint{
+    @apply md:grid-cols-3
+}
+/* Countries Cards */
+.country-card{
+    @apply rounded-2xl bg-cosmic-cards border-2 border-solid border-cosmic-border flex flex-col items-center justify-center gap-1.5 z-10 p-2 shadow-lg transition-all;
+}
+.country-card:hover{
+    @apply shadow-card;
+    .flag{
+        @apply w-flag-width-hover;
+    }
+}
+/* Countries Cards BREAKPOINT */
+.country-card-breakpoint{
+    @apply md:col-start-2 md:h-96;
+}
+.hello-world-card:hover{
+    @apply shadow-card;
+}
+/* Countries Cards Name */
+.country-name{
+    @apply text-size-2 text-center font-bold text-white;
+}
+/* Countries Cards Capital */
+.capital{
+    @apply text-gray-300 text-size-1 text-center font-bold;
+}
+/* Countries Cards languages */
+.language-container{
+    @apply text-white text-center text-size-1
+}
+.language{
+    @apply text-gray-300 text-size-1 text-center font-bold italic;
+}
+/* Countries Cards Flag */
+.flag{
+    @apply w-flag-width h-flag-height rounded-2xl shadow-card object-cover mt-1 mb-2 transition-all duration-1000;
+}
+
+/* Countries Card NEPAL */
+.nepal{
+    @apply w-flag-nepal-width h-auto rounded-none shadow-none;
+}
+.country-card:hover #nepal{
+    @apply w-flag-nepal-width-hover h-auto;
+}
+/* Hello World Card */
+.hello-world-card{
+    @apply col-span-3;
+}
+.hello-world-breakpoint{
+    @apply md:col-span-3;
+}
+/* Search Container */
+.search-container{
+    @apply gap-2 z-30 p-3 absolute top-distance-top rounded-2xl flex flex-col items-center justify-center bg-cosmic-cards border-2 border-solid border-cosmic-border w-width-search h-search-card-height
+}
+.search-container-breakpoint{
+    @apply md:static md:visible md:h-auto md:bg-transparent md:border-none;
+}
+.label-breakpoint{
+    @apply md:hidden z-0 ;
+}
+.search{
+    @apply flex flex-col items-center justify-center gap-3;
+}
+/* SEARCH BREAKPOINT */
+.search-breakpoint{
+    @apply md:gap-2 md:flex-row md:items-center md:justify-start md:w-full md:h-auto;
+}
+.search-input{
+    @apply border-2 border-solid border-cosmic-border p-1 rounded-lg w-4/5 outline-none mb-2;
+    animation: rot 2s infinite ease-in-out;
+}
+.search-input-breakpoint{
+    @apply md:animate-none md:mb-0 md:w-52
+}
+.search-input-hover{
+    @apply hover:shadow-card;
+}
+
+/* Invalid Card */
+.invalid-card{
+    @apply flex flex-col items-center justify-center gap-3 bg-cosmic-cards border-2 border-solid border-cosmic-border rounded-2xl p-4 shadow-lg transition-all;
+}
+.invalid-card:hover{
+    @apply shadow-card;
+}
+/* Invalid Card BREAKPOINT */
+.invalid-card-breakpoint{
+    @apply md:col-span-3;
+}
+.error-name{
+    @apply text-red-500 text-size-4 font-bold text-center;
+}
+.error-message{
+    @apply text-gray-200 text-center text-size-2;
+}
+.error-icon{
+    @apply text-red-500;
+}
+@keyframes rot {
+    0% {
+        transform: rotateX(-15deg) translateY(0px);
+    }
+    50% {
+        transform: rotateX(-15deg) translateY(-10px);
+    }
+    100% {
+        transform: rotateX(-15deg) translateY(0px);
+    }
+}
+
+/* Footer */
+.footer{
+    @apply flex flex-col justify-center items-center gap-2 mt-5 p-2.5
+}
+.social-links{
+    @apply flex flex-row justify-center items-center gap-2;
+}
+.social-icons{
+    @apply w-7 h-7
+}
+.social-icons:hover{
+    @apply scale-105 transition-transform duration-300;
+}

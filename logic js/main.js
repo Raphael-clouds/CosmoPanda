@@ -219,14 +219,12 @@ function regions(datos) {
 function toggleSearch() {
     searchToggle.addEventListener("click", () => {
         if (searchDiv.classList.contains("invisible")) {
-            body.classList.add("overflow-hidden");
             searchDiv.classList.remove("invisible", "animate-fade-out-up");
             searchDiv.classList.add("flex", "animate-fade-in-down");
             helloWorld.classList.add("invisible");
             helloWorld.classList.remove("flex", "animate-blurred-fade-in");
         } else {
             setTimeout(() => {
-                body.classList.remove("overflow-hidden");
                 searchDiv.classList.add("invisible");
                 searchDiv.classList.remove("flex", "animate-fade-in-down");
                 helloWorld.classList.remove("invisible");
